@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Jredirect {
-   private static String url;
    private static String finalUrl;
    private static int i = 0;
 

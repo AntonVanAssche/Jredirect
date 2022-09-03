@@ -13,7 +13,7 @@
 ## Usage
 
 ```bash
-$ java src/Jredirect.java -u <url>
+$ java src/Jredirect.java <url>
 ```
 
 ## License

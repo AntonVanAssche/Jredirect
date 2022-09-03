@@ -91,7 +91,7 @@ public class Jredirect {
       } else {
          if (isValidURL(args[0])) {
             getRedirectedURLs(args[0]);
-            System.out.println("\n" + (i-1) + " Redirect(s) were found " + url + " ➜ " + finalUrl);
+            System.out.println("\n" + (i-1) + " Redirect(s) were found " + args[0] + " ➜ " + finalUrl);
             System.exit(0);
          } else {
             System.err.println("The given URL '" + args[0] + "' is invalid.");

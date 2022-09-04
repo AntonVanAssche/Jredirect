@@ -56,9 +56,20 @@ public class Jredirect {
       }
     }
 
-   // Method that will return all the redirected urls of the given url.
+   // Loading animation to display while tracing the redirects.
+   public static String spinner() {
+      String[] spinners = {"⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"};
+      return BLUE_BOLD + spinners[i++ % spinners.length] + RESET;
+   }
+
+   // Method that will return all the redirected urls of the given url using the HttpURLConnection library.
    public static void getRedirectedURLs(String url) {
       try {
+         // Display the loading animation.
+         String line = spinner() +" Tracing URL: " + url;
+         System.out.print("\r" + line);
+
+         // Make the connection to the given url.
          HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
          con.setInstanceFollowRedirects(false);
          con.connect();
@@ -66,12 +77,21 @@ public class Jredirect {
          int code = con.getResponseCode();
          String color = getColor(code);
 
-         System.out.println(WHITE_BOLD + "#" + i++ + ": " + RESET + color + code + RESET + " " + url);
+         // Clear the current line before printing the new one.
+         System.out.print("\r");
+         for (int j = 0; j <= line.length(); j++)
+            System.out.print(" ");
 
-         if (code == HttpURLConnection.HTTP_MOVED_TEMP || code == HttpURLConnection.HTTP_MOVED_PERM || code == HttpURLConnection.HTTP_SEE_OTHER) {
-            url = con.getHeaderField("Location");
+         // Print the index + the status code + the url, instead of the spinner.
+         if (! (code == HttpURLConnection.HTTP_MOVED_TEMP || code == HttpURLConnection.HTTP_MOVED_PERM || code == HttpURLConnection.HTTP_SEE_OTHER)) {
             finalUrl = url;
-            getRedirectedURLs(url);
+            System.out.println("\r#" + i + ": " + color + code + RESET + " " + url);
+         } else {
+            String location = con.getHeaderField("Location");
+            System.out.println("\r#" + i + ": " + color + code + RESET + " " + url);
+            if (location != null) {
+               getRedirectedURLs(location);
+            }
          }
       } catch (MalformedURLException e) {
          System.out.println(RED_BOLD + "Malformed URL: " + url + RESET);

@@ -60,7 +60,7 @@ public class Jredirect {
    public static void getRedirectedURLs(String url) {
       try {
          // Display the loading animation.
-         String line = WHITE_BOLD + "#" + i++ + ": " + RESET + "Tracing URL: " + url;
+         String line = WHITE_BOLD + "#" + i + ": " + RESET + "Tracing URL: " + url;
          System.out.print("\r" + line);
 
          // Make the connection to the given url.
@@ -79,10 +79,10 @@ public class Jredirect {
          // Print the index + the status code + the url, instead of the spinner.
          if (! (code == HttpURLConnection.HTTP_MOVED_TEMP || code == HttpURLConnection.HTTP_MOVED_PERM || code == HttpURLConnection.HTTP_SEE_OTHER)) {
             finalUrl = url;
-            System.out.println("\r" + WHITE_BOLD + "#" + i + ": " + color + code + RESET + " " + url);
+            System.out.println("\r" + WHITE_BOLD + "#" + i++ + ": " + color + code + RESET + " " + url);
          } else {
             String location = con.getHeaderField("Location");
-            System.out.println("\r" + WHITE_BOLD + "#" + i + ": " + color + code + RESET + " " + url);
+            System.out.println("\r" + WHITE_BOLD + "#" + i++ + ": " + color + code + RESET + " " + url);
             if (location != null) {
                getRedirectedURLs(location);
             }

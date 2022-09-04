@@ -15,6 +15,6 @@ $ jar cvmf MANIFEST.MF Jredirect.jar Jredirect.class
 Convert the `.jar` file to a **LINUX** executable:
 
 ```bash
-$ cat convert-to-executable.sh Jredirect.jar > Jredirect && chmod +x Jredirect
+$ cat build/convert-to-executable.sh Jredirect.jar > Jredirect && chmod +x Jredirect
 ```
 

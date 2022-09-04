@@ -12,7 +12,7 @@ jobs:
       with:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '17'
-    - run: |
+      run: |
       java -cp java src/Jredirect.java
       java -cp java src/Jredirect.java https://bit.ly/3AHn4es
 

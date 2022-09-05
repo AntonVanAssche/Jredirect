@@ -38,7 +38,7 @@ In case you are on a **UNIX** system you can do the following to create a sort o
 
 ```bash
 $ echo '#!/usr/bin/java -jar' > Jredirect
-$ cat Jredirect.jar > Jredirect
+$ cat Jredirect.jar >> Jredirect
 $ chmod +x Jredirect
 ```
 

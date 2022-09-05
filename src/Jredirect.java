@@ -20,7 +20,7 @@ public class Jredirect {
    // Method to print out the usage information.
    public static void usage(Jredirect app) {
       // Shows the usage in the following format: `Usage: java Jredirect <url>`
-      System.out.println("Usage: " + app.getClass().getSimpleName() + " <url>");
+      System.out.println("Usage: java -jar " + app.getClass().getSimpleName() + ".jar" + " <url>");
    }
 
    // Method that will return the color of the status code.

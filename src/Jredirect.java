@@ -40,6 +40,7 @@ public class Jredirect {
 
    // Method to check whether the given URL is valid using ReGex.
    public static boolean isValidURL(String url) {
+      // ReGex to check valid URL.
       String regex = "((http|https)://)(www.)?"
          + "[a-zA-Z0-9@:%._\\+~#?&//=]"
          + "{2,256}\\.[a-z]"
@@ -47,7 +48,10 @@ public class Jredirect {
          + "._\\+~#?&//=]*)";
 
       try {
+         // Compiles the given regular expression into a pattern.
          Pattern p = Pattern.compile(regex);
+
+         // If the given input matches the ReGex, then it returns true, else false.
          Matcher m = p.matcher(url);
          return m.matches();
       } catch (RuntimeException e) {
@@ -67,6 +71,7 @@ public class Jredirect {
          con.setInstanceFollowRedirects(false);
          con.connect();
 
+         // Get the status code of the connection and it's coreesponding color.
          int code = con.getResponseCode();
          String color = getColor(code);
 

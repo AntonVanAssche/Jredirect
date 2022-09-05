@@ -112,7 +112,6 @@ public class Jredirect {
             System.exit(0);
          } else {
             System.err.println("The given URL '" + args[0] + "' is invalid.");
-            usage(app);
             System.exit(1);
          }
       }

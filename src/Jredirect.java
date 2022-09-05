@@ -11,7 +11,6 @@ public class Jredirect {
    public static final String RESET = "\033[0m";  // Text Reset
 
    // Colors
-   public static final String GRAY = "\033[0;90m";        // GRAY NORMAL
    public static final String RED_BOLD = "\033[1;31m";    // RED BOLD
    public static final String GREEN_BOLD = "\033[1;32m";  // GREEN BOLD
    public static final String BLUE_BOLD = "\033[1;34m";   // BLUE BOLD

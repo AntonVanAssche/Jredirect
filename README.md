@@ -10,22 +10,38 @@
    <img src="./assets/Jredirect-preview.gif">
 </div>
 
+## Installation
+
+Download the `.jar` file is provided inside the `bin` directory.
+
 ## Usage
 
 ```bash
-$ java src/Jredirect.java <url>
+$ java -jar Jredirect.jar <url>
 ```
 
-Alternatively, if you are on a **Linux** system you can download the executable providede in the [`bin`](./bin/) directory.
-When using the executable you can do the following to trace redirects.
+## Building a `.jar` file from source
+
+Create the `.class` file:
 
 ```bash
-$ Jredirect <url>
+$ javac -d . src/Jredirect.java
 ```
 
-## Building a **LINUX** executable
+Build the `.jar` file:
 
-Reference the [`README.md`](./build/README.md) inside the `build` directory.
+```bash
+$ jar cvmf MANIFEST.MF Jredirect.jar Jredirect.class
+```
+
+In case you are on a **UNIX** system you can do the following to create a sort of binary executable.
+
+```bash
+$ echo '#!/usr/bin/java -jar' > Jredirect
+$ cat Jredirect.jar > Jredirect
+$ chmod +x Jredirect
+```
+
 
 ## License
 
